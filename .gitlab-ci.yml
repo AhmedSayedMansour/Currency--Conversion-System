@@ -1,0 +1,15 @@
+stages:
+  - deploy
+
+deploy:
+  image: alpine:latest
+  stage: deploy
+  tags:
+    - app
+  script:
+    - chmod og= $ID_RSA
+    - apk update && apk add openssh-client
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "$SH_FILE_PATH"
+  only:
+    - develop
+
