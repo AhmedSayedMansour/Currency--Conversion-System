@@ -1,7 +1,4 @@
 from django.apps import AppConfig
-from django_q.tasks import schedule
-from django.utils import timezone
-from datetime import timedelta
 
 
 class ProjectsConfig(AppConfig):
@@ -9,6 +6,9 @@ class ProjectsConfig(AppConfig):
     name = 'currency_conversion'
 
     def ready(self):
+        from django_q.tasks import schedule
+        from django.utils import timezone
+        from datetime import timedelta
         # Ensure you don't schedule tasks more than once: check if the task is already scheduled
         # Schedule your task using Django-Q's schedule function
         schedule('currency_conversion.tasks.update_status',
