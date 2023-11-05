@@ -25,4 +25,4 @@ class ExchangeRate(models.Model):
         ]
 
     def __str__(self):
-        return self.from_currency + "_" + self.to_currency + "_" + str(self.created_at)
+        return self.from_currency.code + "_" + self.to_currency.code + "_" + str(self.created_at)

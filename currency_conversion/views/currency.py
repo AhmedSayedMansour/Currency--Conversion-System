@@ -7,7 +7,7 @@ from currency_conversion.models import Currency
 from currency_conversion.serializers.currency_serializer import CurrencySerializer
 
 
-class CurrencyView(viewsets.ModelViewSet):
+class CurrencyView(viewsets.ReadOnlyModelViewSet):
     queryset = Currency.objects.all()
     serializer_class = CurrencySerializer
     permission_classes = [permissions.IsAuthenticated]

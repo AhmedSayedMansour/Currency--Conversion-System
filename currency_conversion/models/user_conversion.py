@@ -29,7 +29,7 @@ class UserConversion(models.Model):
         max_length=10
     )
 
-    result = models.DecimalField(max_digits=12, decimal_places=8)
+    result = models.IntegerField()
 
     class Meta:
         ordering = ["user"]
