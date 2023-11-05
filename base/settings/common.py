@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "watchman",
     "currency_conversion",
+    "django_q",
     "django_prometheus",
     "user_management",
     "drf_spectacular",
