@@ -34,16 +34,16 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
 
 class LoginSerializer(serializers.Serializer):
-    email = serializers.CharField()
+    username = serializers.CharField()
     password = serializers.CharField(
         style={'input_type': 'password'}, write_only=True)
 
     def validate(self, data):
-        user = User.objects.filter(email=data.get('email')).first()
+        user = User.objects.filter(username=data.get('username')).first()
         if user:
             if user.is_active:
                 authenticated_user = authenticate(
-                    username=data.get('email'),
+                    username=data.get('username'),
                     password=data.get('password'))
                 if authenticated_user:
                     return {

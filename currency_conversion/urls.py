@@ -1,8 +1,9 @@
 from django.urls import include, path
 from rest_framework import routers
+from currency_conversion.views.currency import CurrencyView
 
 router = routers.DefaultRouter()
-# router.register(r'projects', ProjectViewSet)
+router.register(r'currency', CurrencyView)
 
 urlpatterns = [
     path(
@@ -15,6 +16,5 @@ urlpatterns = [
     # path(
     #     'list/<int:organization_id>',
     #     GetProjectsByOrganizationView.as_view()),
-    # path('performance/<int:project_id>', ProjectPerformanceView.as_view()),
     # path('performance/<int:project_id>/user/<int:user_id>', UserPerforanceView.as_view()),
 ]
